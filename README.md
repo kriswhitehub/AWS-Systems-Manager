@@ -6,7 +6,10 @@ AWS Systems Manager- Automating Patch Management With AWS Systems Manager
 4. Installing the AWS Systems Manager Agent
 5. Running a Patch Scan
 
-### AWS Linux Systems
+
+### Patching
+
+#### AWS Linux Systems
 
 1. Inventory Management
     * Use AWS Systems Manager to automatically discover and manage your Linux instances on AWS.
@@ -48,3 +51,48 @@ AWS Systems Manager- Automating Patch Management With AWS Systems Manager
 5. Compliance Monitoring and Reporting
     * Regularly audit systems for patch compliance using your chosen patch management tool or custom scripts.
     * Generate compliance reports for internal and external audit purposes. Address any compliance issues immediately.
+## Role Back Plan
+
+### Rollback Plan for AWS Linux Systems
+
+1. Pre-Deployment Preparations
+
+      * Ensure that you have a recent backup of the system and data. Utilize AWS Backup or your preferred backup solution to create snapshots or backups of your instances and volumes.
+      * Test the backup restoration process regularly to confirm that you can quickly revert to a pre-patch state if necessary.
+
+2. Automated Rollback Using AWS Systems Manager
+
+      * Use AWS Systems Manager State Manager to create a document that specifies the pre-patch state of the instances or uses previously known good configurations.
+      * In the event of a failed patch deployment, trigger the State Manager document to revert the instances to their previous configurations.
+
+3. Manual Rollback Procedures
+
+      * If automated rollback is not feasible, manually stop the affected instances.
+      * Restore from the pre-patch backups or snapshots to revert the instances to their pre-patch state.
+      * Restart the instances and validate that the services are running as expected.
+
+4. Post-Rollback Actions
+
+      * Analyze logs and monitoring data to understand the cause of the issue.
+      * Implement necessary changes to avoid similar issues in future patch deployments.
+
+### Rollback Plan for On-premises Linux Systems
+1. Pre-Deployment Preparations
+
+      * Ensure comprehensive backups are taken before patching, including system states, application data, and databases.
+      * Validate the backup integrity and restoration process periodically.
+
+2. Using Configuration Management Tools for Rollback
+
+      * Utilize configuration management tools (e.g., Ansible, Puppet, Chef) to snapshot the system state before applying patches. These tools can also be used to automate the rollback process.
+      * In case of a patch issue, use these tools to apply the pre-patch configuration to the servers.
+
+3. Manual Rollback Procedures
+
+      * If automated tools are not in place or fail, manually remove the problematic patches using package managers like yum or apt-get to revert to previous versions of the packages.
+      * For more severe issues, restore the systems from the backups taken before patching. This might involve re-imaging the server and restoring data from backups.
+
+4. Post-Rollback Actions
+
+      * Conduct a thorough investigation to identify the cause of the failure. This might involve reviewing patch notes, system logs, and application logs.
+      * Adjust the patch testing and deployment process to prevent recurrence of the issue.
