@@ -1,4 +1,4 @@
-# AWS-Systems-Manager
+# AWS Systems Manager
 AWS Systems Manager- Automating Patch Management With AWS Systems Manager
 1. Logging In to the Amazon Web Services Console
 2. Attaching the SSM Policy to an IAM Role
