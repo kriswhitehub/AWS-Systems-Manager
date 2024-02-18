@@ -7,7 +7,7 @@ AWS Systems Manager- Automating Patch Management With AWS Systems Manager
 5. Running a Patch Scan
 
 
-### Patching
+#### Patching
 
 #### AWS Linux Systems
 
