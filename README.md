@@ -1,4 +1,17 @@
 # AWS Systems Manager
+### How It Works
+
+1. **Access Systems Manager** – Use one of the available options for accessing Systems Manager.
+2. **Choose a Systems Manager capability** – Determine which capability can help you perform the action you want to perform on your resources. The diagram shows only a few of the capabilities that IT administrators and DevOps personnel use to manage their applications and resources.
+3. **Verification and processing** – Systems Manager verifies that your user, group, or role has the required AWS Identity and Access Management (IAM) permissions to perform the action you specified. If the target of your action is a managed node, the Systems Manager Agent (SSM Agent) running on the node performs the action. For other types of resources, Systems Manager performs the specified action or communicates with other AWS services to perform the action on behalf of Systems Manager.
+4. **Reporting** – Systems Manager, SSM Agent, and other AWS services that performed an action on behalf of Systems Manager report status. Systems Manager can send status details to other AWS services, if configured.
+5. **Systems Manager operations management capabilities** – If enabled, Systems Manager operations management capabilities such as Explorer, OpsCenter, and Incident Manager aggregate operations data or create artifacts in response to events or errors with your resources. These artifacts include operational work items (OpsItems) and incidents. Systems Manager operations management capabilities provide operational insight into your applications and resources and automated remediation solutions to help troubleshoot problems.
+
+
+![AmazonEC2](images/AWS-Patch-Manager.png) 
+
+
+#### Tutorial
 AWS Systems Manager- Automating Patch Management With AWS Systems Manager
 1. Logging In to the Amazon Web Services Console
 2. Attaching the SSM Policy to an IAM Role
